@@ -1,12 +1,15 @@
 import React from 'react'
 
-const ImageCards = ({image}) => {
+const ImageCards = ({ image }) => {
+
+  const tags = image.tags.split(",");
+
   return (
-    <div className="max-w-sm overflow-hidden shadow-lg">
+    <div className="max-w-sm overflow-hidden shadow-lg mt-10">
       <img src={image.webformatURL} alt="" className='w-full' />
       <div className="px-6 py-4">
         <div className="font-bold text-purple-500 text-xl mb-2">
-          Photo By Kane Williamsan
+          Photo By {image.user}
         </div>
         <div>
           <ul>
@@ -14,17 +17,17 @@ const ImageCards = ({image}) => {
               {image.views}
             </li>
             <li><strong>Downloads : </strong>
-            {image.downloads}
+              {image.downloads}
             </li>
             <li><strong>Likes : </strong>
-            {image.likes}
+              {image.likes}
             </li>
           </ul>
         </div>
         <div className="py-4">
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#tag1</span>
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#tag2</span>
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#tag3</span>
+          {tags.map((tag, idx) => (
+            <span key={idx} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#{tag}</span>
+          ))}
         </div>
       </div>
     </div>
