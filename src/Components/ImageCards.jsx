@@ -5,6 +5,8 @@ const ImageCards = ({ image }) => {
   const tags = image.tags.split(",");
 
   return (
+    <div className=''>
+
     <div className="max-w-sm overflow-hidden shadow-lg mt-10">
       <img src={image.webformatURL} alt="" className='w-full' />
       <div className="px-6 py-4">
@@ -30,6 +32,7 @@ const ImageCards = ({ image }) => {
           ))}
         </div>
       </div>
+    </div>
     </div>
   )
 }
